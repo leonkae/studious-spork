@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors")
 const dns = require("dns");
 
 const User = require("./models/User");
@@ -13,6 +14,7 @@ const PORT = process.env.PORT;
 dns.setServers(["8.8.8.8", "1.1.1.1", "8.8.4.4"]);
 // middleware used to parse json request bodies
 
+app.use(cors())
 app.use(express.json());
 
 const connectDB = async () => {
